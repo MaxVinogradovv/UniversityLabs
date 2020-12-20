@@ -1,0 +1,6 @@
+<section class="product-list">
+  <app-product *ngFor='let item of products'
+               [product]='item'
+               (eventProduct)='loadProducts()'>
+  </app-product>
+</section>
