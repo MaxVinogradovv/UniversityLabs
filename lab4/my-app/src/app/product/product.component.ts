@@ -6,14 +6,14 @@ import {DataService} from '../data.service'
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() product: any;
+  @Input() products: any;
   @Output() eventProduct = new EventEmitter();
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
-    console.log(this.product);
+    console.log(this.products);
   }
 
   removeProduct(item: any) {

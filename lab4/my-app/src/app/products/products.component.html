@@ -1,20 +1,7 @@
 <section class="product-list">
-  <table class="styled-table">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-      <app-product *ngFor='let item of products'
-                   [product]='item'
+      <app-product [products]="products"
                    (eventProduct)='loadProducts()'>
       </app-product>
-    </tbody>
-  </table>
 
 
   <div>

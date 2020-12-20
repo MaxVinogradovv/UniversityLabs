@@ -36,6 +36,9 @@ export class ProductsComponent implements OnInit {
     if (!this.price) {
       return alert('price is required')
     }
+    if(!Number.isInteger(+this.price)) {
+      return alert('price needs to be a number')
+    }
     if (this.products.find((item: any) => item.name == this.name)) {
       return alert(`Product name ${this.name} already exists`)
     }
