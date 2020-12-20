@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import {DataService} from "./data.service";
+import {HttpClientModule} from "@angular/common/http";
+import {httpInterceptors} from "./interceptors/http-interceptors";
 
 @NgModule({
   declarations: [
@@ -23,9 +25,13 @@ import {DataService} from "./data.service";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [DataService],
+  providers: [
+    DataService,
+    ...httpInterceptors
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
     console.log(this.product);
   }
 
-  removeProduct(item) {
+  removeProduct(item: any) {
     console.log('removeProduct:');
     console.log(item);
     this.dataService.removeProduct(item).subscribe(data => {

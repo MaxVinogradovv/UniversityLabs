@@ -7,11 +7,11 @@ export class DataService {
   getProducts(){
     return this.http.get('/getproducts');
   }
-  removeProduct(item){
+  removeProduct(item: { _id: string}){
     let obj={id:item._id}
     return this.http.post('/removeproduct',obj,{responseType:'text'})
   }
-  addProduct(item){
+  addProduct(item: any){
     return this.http.post('/addproduct',item,{responseType:'text'});
   }
 }
