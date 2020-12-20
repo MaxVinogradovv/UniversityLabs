@@ -16,17 +16,30 @@ app.get('/',function(req,res){
 })
 app.listen(process.env.PORT || 8080);
 
+var Product = require('./ProductModel');
+
 app.get('/getproducts', async(req, res) => {
-  return res.status(200).send([{name: 1, description: 2, price: 3}])
+  Product.find(function (err, data) {
+    res.send(data);
+  });
 })
 
 app.post('/addproduct', async(req, res) => {
-
-  return res.status(200).send([{name: 1, description: 2, price: 3}])
+  var product = new Product(req.body);
+  product.save(function (err, data) {
+    if (err) {
+      console.log(err.message);
+      return res.status(400).send({message: err.message});
+    }
+    console.log(data);
+    res.status(200).send({message: 'product added!'});
+  });
 })
 
 app.post('/removeproduct', async(req, res) => {
-  return res.status(200).send({message: 'ok'})
+  Product.remove({_id:req.body.id},function(err,data) {
+    res.status(200).send({message: 'remove product'});
+  })
 })
 
 console.log('server is run!');

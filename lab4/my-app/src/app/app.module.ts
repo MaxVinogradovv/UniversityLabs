@@ -12,6 +12,7 @@ import { ProductComponent } from './product/product.component';
 import {DataService} from "./data.service";
 import {HttpClientModule} from "@angular/common/http";
 import {httpInterceptors} from "./interceptors/http-interceptors";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {httpInterceptors} from "./interceptors/http-interceptors";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     DataService,

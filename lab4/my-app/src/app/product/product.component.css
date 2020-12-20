@@ -35,15 +35,3 @@
   font-weight: bold;
   color: #009879;
 }
-
-.button {
-  background-color: #f44336; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
