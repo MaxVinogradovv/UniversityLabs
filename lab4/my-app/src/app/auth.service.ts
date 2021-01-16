@@ -5,7 +5,7 @@ import { BehaviorSubject } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
-  private url: string = "http://localhost:5000/user/";
+  //private url: string = "http://localhost:5000/user/";
 
   private authStatus = new BehaviorSubject(false);
   currentAuthStatus = this.authStatus.asObservable();
@@ -29,11 +29,11 @@ export class AuthService {
   }
 
   registerUser(user: any) {
-    return this.http.post<any>(this.url + "register", user);
+    return this.http.post<any>( "/register", user);
   }
 
   loginUser(user: any) {
-    return this.http.post<any>(this.url + "login", user);
+    return this.http.post<any>( "/login", user);
   }
 
   logoutUser() {

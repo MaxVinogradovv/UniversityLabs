@@ -55,7 +55,7 @@
       />
       <div [hidden]="!password2.errors?.required" class="invalid-feedback">Password confirmation is required</div>
     </div>
-    <button type="submit" class="btn btn-danger">Next<fa name="arrow-right" class="ml-2"></fa></button>
+    <button type="submit" class="btn btn-danger">Next</button>
   </form>
   <!-- form 2 -->
   <form #registerForm2="ngForm" (ngSubmit)="onRegisterUser(registerForm2)" *ngIf="Register1" novalidate>
@@ -169,4 +169,3 @@
       </div>
     </div>
   </div>
-  

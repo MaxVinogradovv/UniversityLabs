@@ -15,7 +15,13 @@ import {httpInterceptors} from "./interceptors/http-interceptors";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
-import { AngularFontAwesomeModule } from "angular-font-awesome";
+import {MainComponent} from "./mainPage/main.component";
+
+import { MatInputModule } from '@angular/material';
+import { MatCardModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -28,6 +34,7 @@ import { AngularFontAwesomeModule } from "angular-font-awesome";
     ProductComponent,
     LoginComponent,
     RegisterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,11 @@ import { AngularFontAwesomeModule } from "angular-font-awesome";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule
+    MatInputModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [
     DataService,
