@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~11.0.4",
     "@angular/platform-browser-dynamic": "~11.0.4",
     "@angular/router": "~11.0.4",
+    "angular-font-awesome": "^3.1.2",
     "cors": "^2.8.5",
     "mongoose": "^5.11.8",
     "rxjs": "~6.6.0",

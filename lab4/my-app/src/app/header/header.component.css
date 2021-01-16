@@ -13,7 +13,7 @@
 }
 .header-buttons .header-text{
   margin-left:3px;
-  display:none;
+  /*display:none;*/
 }
 .header-buttons article:hover .header-text{
   display:inline-flex;

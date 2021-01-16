@@ -12,7 +12,10 @@ import { ProductComponent } from './product/product.component';
 import {DataService} from "./data.service";
 import {HttpClientModule} from "@angular/common/http";
 import {httpInterceptors} from "./interceptors/http-interceptors";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LoginComponent} from "./auth/login/login.component";
+import {RegisterComponent} from "./auth/register/register.component";
+import { AngularFontAwesomeModule } from "angular-font-awesome";
 
 @NgModule({
   declarations: [
@@ -22,13 +25,17 @@ import {FormsModule} from "@angular/forms";
     MobileMenuComponent,
     FooterComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [
     DataService,

@@ -17,6 +17,14 @@ app.get('/',function(req,res){
 app.listen(process.env.PORT || 8080);
 
 var Product = require('./ProductModel');
+const User = require('./UserModel');
+
+app.get('login', async(req ,res) => {
+  const { email, password } = req.query;
+  User.find({email, password}, function (err, data) {
+    res.send(data);
+  });
+})
 
 app.get('/getproducts', async(req, res) => {
   Product.find(function (err, data) {
