@@ -1,5 +1,6 @@
 <div class="wrapper">
-  <app-product [products]="products"
+  <app-product *ngIf="this.bucketItems" [products]="products"
+               [bucketItems]="bucketItems"
                (eventProduct)='loadProducts()'>
   </app-product>
   <div class="push"></div>

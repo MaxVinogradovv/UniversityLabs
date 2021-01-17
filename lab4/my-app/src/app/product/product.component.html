@@ -16,12 +16,13 @@
       <td>
 
 
-<ng-template *ngIf="!isBucket; else bucket">
+<ng-container *ngIf="!isBucket; else bucket">
         <button *ngIf="isEditable; else another" class="button" (click)="removeProduct(product)"> Remove </button>
         <ng-template #another>
-          <button class="button"  style="background: darkblue" (click)="addToBucket(product)"> Add to bucket </button>
+          <button *ngIf="!product.isInBucket" class="button"  style="background: darkblue" (click)="addToBucket(product)"> Add to bucket </button>
+          <span *ngIf="product.isInBucket"   style="color: #868282" (click)="addToBucket(product)"> Already in bucket </span>
         </ng-template>
-  </ng-template>
+  </ng-container>
 
         <ng-template #bucket>
           <button  class="button" (click)="removeFromBucket(product)"> Remove </button>

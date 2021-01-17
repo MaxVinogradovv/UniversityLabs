@@ -42,8 +42,8 @@ export class LoginComponent {
   onSubmit() {
     debugger
     this.authService.loginUser(this.loginForm.value).subscribe(data => {
-      if(data) {
-        this.route.navigate(['/admin'],);
+      if(data._id) {
+        this.route.navigate([`/admin/${data._id}`],);
       } else {
         this.route.navigate(['/'])
       }

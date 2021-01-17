@@ -7,25 +7,25 @@ import {CookieService} from "ngx-cookie-service";
   styleUrls: ['./bucket.component.css']
 })
 export class BucketComponent implements OnInit {
-  @Input() products: any;
-  // @ts-ignore
-  @Input() isEditable: false;
-  @Output() eventProduct = new EventEmitter();
-
-
-
   constructor(private dataService: DataService, public cookieService: CookieService) {
   }
 
+  public products: any;
+
   ngOnInit() {
-    console.log(this.products);
+    this.loadProducts();
   }
 
+  public totalPrice = 0;
   loadProducts() {
     const clientId =  this.cookieService.get('clientId')
     this.dataService.getItemsFromBucket(clientId).subscribe(data => {
       this.products = data;
-      console.log(this.products);
+      this.totalPrice = 0;
+      // @ts-ignore
+      for(let item of data) {
+        this.totalPrice += item.price;
+      }
     })
   }
 }

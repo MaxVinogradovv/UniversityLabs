@@ -21,8 +21,8 @@ const User = require('./UsersModel');
 const Bucket = require('./BucketModel');
 
 app.post('/login', async(req ,res) => {
-  const { email, password } = req.query;
-  User.find({email, password}, function (err, data) {
+  const { email, password } = req.body;
+  User.find({email, password}, function (err, [data]) {
     res.send(data);
   });
 })
@@ -66,7 +66,7 @@ app.post('/removeproduct', async(req, res) => {
         return res.status(400).send({message: err.message});
       }
       console.log(data);
-      res.status(200).send({message: 'product added!'});
+      res.status(200).send({message: 'bucket record added!'});
     });
   })
 

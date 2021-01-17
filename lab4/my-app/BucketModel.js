@@ -3,12 +3,10 @@ var schemaBucket=new mongoose.Schema({
   clientId:{
     type: String,
     require:true,
-    unique:true
   },
   name:{
     type: String,
     require:true,
-    unique:true
   },
   description:{
     type: String,

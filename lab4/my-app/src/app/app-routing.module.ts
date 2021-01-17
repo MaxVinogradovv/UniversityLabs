@@ -10,7 +10,7 @@ import {BucketComponent} from "./bucket/bucket.component";
 const routes: Routes = [
   { path: "", redirectTo: "/", pathMatch: "full" },
   { path: "", component: MainComponent },
-  { path: "admin", component: ProductsComponent },
+  { path: "admin/5fdf6a86cb9fe364ad9d87c6", component: ProductsComponent },
   // { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
   { path: "bucket", component: BucketComponent },
   { path: "login", component: LoginComponent },

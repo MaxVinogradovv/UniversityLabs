@@ -1,12 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, DoCheck} from '@angular/core';
 import {DataService} from '../data.service'
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, DoCheck {
   @Input() products: any;
+  @Input() bucketItems: any;
   @Input() isEditable: boolean = false;
   @Input() isBucket: boolean = false;
   @Output() eventProduct = new EventEmitter();
@@ -15,7 +16,22 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.products);
+
+   for(let item of this.products || []) {
+     if(this.bucketItems.find((bucketItem : any) => bucketItem.name === item.name)){
+       item.isInBucket = true
+     }
+   }
+  }
+
+  ngDoCheck(){
+    if(this.bucketItems) {
+      for (let item of this.products || []) {
+        if (this.bucketItems.find((bucketItem: any) => bucketItem.name === item.name)) {
+          item.isInBucket = true
+        }
+      }
+    }
   }
 
   removeProduct(item: any) {
@@ -42,7 +58,7 @@ export class ProductComponent implements OnInit {
 
   addToBucket(item: any) {
     this.dataService.addProductToBucket(item).subscribe(data => {
-
+      this.sendEvent();
     })
   }
 }

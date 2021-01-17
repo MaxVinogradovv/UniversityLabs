@@ -59,7 +59,8 @@ import { CookieService} from "ngx-cookie-service";
   providers: [
     DataService,
     CookieService,
-    ...httpInterceptors
+    ...httpInterceptors,
+
   ],
   bootstrap: [AppComponent]
 })

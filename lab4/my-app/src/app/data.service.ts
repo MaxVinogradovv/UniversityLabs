@@ -23,9 +23,10 @@ export class DataService {
   }
 
   addProductToBucket(item: any) {
+    delete item._id;
     return this.http.post('/bucket/items', {
       clientId: this.cookieService.get('clientId'),
-      item
+      ...item
     });
   }
 
