@@ -1,4 +1,10 @@
-<article class="header-phone" routerLink="/">Main Page</article>
+<article *ngIf="!authButton.isAdmin" class="header-phone" routerLink="/"  style="display: flex;
+    align-items: center;">
+  <span class="material-icons">
+store
+</span>
+  Main Page</article>
+<article *ngIf="authButton.isAdmin" class="header-phone" ></article>
 <section class="header-buttons">
 <!--  <article class="header-account">-->
 <!--    <i class="fas fa-user"></i>-->
@@ -6,10 +12,20 @@
 <!--  </article>-->
   <article class="header-wish">
     <i class="fas fa-heart"></i>
-    <span class="header-text" routerLink="/bucket">Wish List</span>
+    <span *ngIf="!authButton.isAdmin" class="header-text" routerLink="/bucket"
+    style="display: flex;
+    align-items: center;"> <span class="material-icons">
+shopping_bag
+</span> Bucket</span>
   </article>
-  <article class="header-login">
+  <article class="header-login"
+           style="display: flex;
+    align-items: center;">
     <i class="fas fa-lock"></i>
-    <span class="header-text" routerLink="/login" routerLinkActive="active">Login</span>
+    <span class="material-icons">
+admin_panel_settings
+</span>
+    <span *ngIf="!authButton.isAdmin" class="header-text" routerLink="/login" routerLinkActive="active">{{authButton.name}}</span>
+    <span *ngIf="authButton.isAdmin" class="header-text" (click)="logOut()">{{authButton.name}}</span>
   </article>
 </section>

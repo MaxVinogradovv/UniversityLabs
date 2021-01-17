@@ -15,10 +15,11 @@ app-header{
 .footer,
 .push {
   height: 50px;
+  margin-top: 50px;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
+  /*position: absolute;*/
+  /*bottom: 0;*/
   width: 100%;
 }

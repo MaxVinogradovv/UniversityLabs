@@ -1,14 +1,26 @@
-<section class="product-list">
-  <app-product [products]="products"
-               (eventProduct)='loadProducts()'
-               [isBucket]="true">
-  </app-product>
-</section>
+<!--<section class="product-list">-->
+<!--  <app-product [products]="products"-->
+<!--               (eventProduct)='loadProducts()'-->
+<!--               [isBucket]="true">-->
+<!--  </app-product>-->
+<!--</section>-->
 
-  <div style="display:flex;">
-    Total price &nbsp;
-    <div>
-      {{totalPrice}}
-    </div>
-  </div>
+<!--  <div style="display:flex;">-->
+<!--    Total price &nbsp;-->
+<!--    <div>-->
+<!--      {{totalPrice}}-->
+<!--    </div>-->
+<!--  </div>-->
+<div style="text-align: center; margin: 0% 10% 10% 10%">
+<p>You have {{products.length}} items in your basket.</p>
+<p>Total: {{totalPrice | currency:'USD':'$'}}</p>
+<div class="items">
+  <shopping-item
+    class="item"
+    *ngFor="let item of products"
+    [item]="item"
+    (onRemove)="removeFromBucket(item)">
+  </shopping-item>
+</div>
+</div>
 

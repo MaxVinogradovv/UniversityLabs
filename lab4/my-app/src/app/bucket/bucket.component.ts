@@ -28,4 +28,14 @@ export class BucketComponent implements OnInit {
       }
     })
   }
+
+  removeFromBucket(item: any) {
+    console.log('removeProduct:');
+    console.log(item);
+    this.dataService.removeFromBucket(item).subscribe(data => {
+      console.log(data);
+      this.loadProducts();
+    })
+  }
+
 }

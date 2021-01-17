@@ -27,6 +27,7 @@ import {ProductsSimpleComponent} from "./products-simple/products-simple.compone
 import {BucketComponent} from "./bucket/bucket.component";
 
 import { CookieService} from "ngx-cookie-service";
+import {ShoppingItem} from "./bucket/shopping-item/shopping-item.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CookieService} from "ngx-cookie-service";
     RegisterComponent,
     MainComponent,
     ProductsSimpleComponent,
-    BucketComponent
+    BucketComponent,
+    ShoppingItem
   ],
   imports: [
     BrowserModule,

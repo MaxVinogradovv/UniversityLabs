@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {CookieService} from "ngx-cookie-service";
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor( public cookieService: CookieService) { }
 
   ngOnInit(): void {
   }
