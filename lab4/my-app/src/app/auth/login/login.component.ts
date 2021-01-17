@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {AuthService} from "../../auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import {AuthService} from "../../auth.service";
           <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
             <mat-form-field>
               <mat-icon matPrefix>person_outline</mat-icon>
-              <input autofocus type="text" matInput placeholder="Username" formControlName="username">
+              <input autofocus type="text" matInput placeholder="Email" formControlName="email">
             </mat-form-field>
 
             <mat-form-field>
@@ -32,14 +33,21 @@ import {AuthService} from "../../auth.service";
 export class LoginComponent {
 
   loginForm = this.fb.group({
-    username: [null],
+    email: [null],
     password: [null]
   });
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private route:  Router) {}
 
   onSubmit() {
-    this.authService.loginUser(this.loginForm.value)
+    debugger
+    this.authService.loginUser(this.loginForm.value).subscribe(data => {
+      if(data) {
+        this.route.navigate(['/admin'],);
+      } else {
+        this.route.navigate(['/'])
+      }
+    })
   }
 
 }

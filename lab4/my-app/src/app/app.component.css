@@ -19,4 +19,5 @@ app-header{
 
 .footer {
   position: absolute;
+  bottom: 0;
 }

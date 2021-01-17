@@ -33,6 +33,7 @@ export class AuthService {
   }
 
   loginUser(user: any) {
+    debugger
     return this.http.post<any>( "/login", user);
   }
 

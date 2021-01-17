@@ -17,11 +17,16 @@ import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
 import {MainComponent} from "./mainPage/main.component";
 
-import { MatInputModule } from '@angular/material';
-import { MatCardModule } from '@angular/material';
-import { MatIconModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material';
-import { MatToolbarModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ProductsSimpleComponent} from "./products-simple/products-simple.component";
+import {BucketComponent} from "./bucket/bucket.component";
+
+import { CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -34,7 +39,9 @@ import { MatToolbarModule } from '@angular/material';
     ProductComponent,
     LoginComponent,
     RegisterComponent,
-    MainComponent
+    MainComponent,
+    ProductsSimpleComponent,
+    BucketComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +53,12 @@ import { MatToolbarModule } from '@angular/material';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DataService,
+    CookieService,
     ...httpInterceptors
   ],
   bootstrap: [AppComponent]

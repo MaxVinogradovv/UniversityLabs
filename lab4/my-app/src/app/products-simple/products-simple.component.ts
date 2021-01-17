@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
 @Component({
-  selector: 'main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  selector: 'app-products',
+  templateUrl: './products-simple.component.html',
+  styleUrls: ['./products-simple.component.css']
 })
-export class MainComponent implements OnInit {
+export class ProductsSimpleComponent implements OnInit {
   public products: any;
 
   public name: any;

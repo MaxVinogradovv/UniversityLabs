@@ -7,6 +7,8 @@ import {DataService} from '../data.service'
 })
 export class ProductComponent implements OnInit {
   @Input() products: any;
+  @Input() isEditable: boolean = false;
+  @Input() isBucket: boolean = false;
   @Output() eventProduct = new EventEmitter();
 
   constructor(private dataService: DataService) {
@@ -25,7 +27,22 @@ export class ProductComponent implements OnInit {
     })
   }
 
+  removeFromBucket(item: any) {
+    console.log('removeProduct:');
+    console.log(item);
+    this.dataService.removeFromBucket(item).subscribe(data => {
+      console.log(data);
+      this.sendEvent();
+    })
+  }
+
   sendEvent() {
     this.eventProduct.emit();
+  }
+
+  addToBucket(item: any) {
+    this.dataService.addProductToBucket(item).subscribe(data => {
+
+    })
   }
 }

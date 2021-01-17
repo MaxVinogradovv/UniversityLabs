@@ -1,4 +1,6 @@
 <div class="wrapper">
-  <app-products></app-products>
+  <app-product [products]="products"
+               (eventProduct)='loadProducts()'>
+  </app-product>
   <div class="push"></div>
 </div>

@@ -1,6 +1,7 @@
 <section class="product-list">
       <app-product [products]="products"
-                   (eventProduct)='loadProducts()'>
+                   (eventProduct)='loadProducts()'
+      [isEditable]="true">
       </app-product>
 
 

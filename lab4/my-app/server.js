@@ -17,9 +17,10 @@ app.get('/',function(req,res){
 app.listen(process.env.PORT || 8080);
 
 var Product = require('./ProductModel');
-const User = require('./UserModel');
+const User = require('./UsersModel');
+const Bucket = require('./BucketModel');
 
-app.get('login', async(req ,res) => {
+app.post('/login', async(req ,res) => {
   const { email, password } = req.query;
   User.find({email, password}, function (err, data) {
     res.send(data);
@@ -45,9 +46,35 @@ app.post('/addproduct', async(req, res) => {
 })
 
 app.post('/removeproduct', async(req, res) => {
-  Product.remove({_id:req.body.id},function(err,data) {
+  Product.remove({_id: req.body.id}, function (err, data) {
     res.status(200).send({message: 'remove product'});
   })
-})
+});
 
-console.log('server is run!');
+  app.get('/bucket/items', async (req, res) => {
+    const {clientId} = req.query;
+    Bucket.find({clientId}, function (err, data) {
+      res.send(data);
+    });
+  })
+
+  app.post('/bucket/items', async (req, res) => {
+    var bucketRecord = new Bucket(req.body);
+    bucketRecord.save(function (err, data) {
+      if (err) {
+        console.log(err.message);
+        return res.status(400).send({message: err.message});
+      }
+      console.log(data);
+      res.status(200).send({message: 'product added!'});
+    });
+  })
+
+  app.delete('/bucket/items/:_id', async (req, res) => {
+    Bucket.remove({_id: req.params._id}, function (err, data) {
+      res.status(200).send({message: 'remove bucket record'});
+    })
+  })
+
+
+  console.log('server is run!');

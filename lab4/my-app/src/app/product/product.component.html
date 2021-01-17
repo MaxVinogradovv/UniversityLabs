@@ -14,7 +14,18 @@
       <td>{{product.description}}</td>
       <td>{{product.price}}</td>
       <td>
-        <button class="button" (click)="removeProduct(product)"> Remove </button>
+
+
+<ng-template *ngIf="!isBucket; else bucket">
+        <button *ngIf="isEditable; else another" class="button" (click)="removeProduct(product)"> Remove </button>
+        <ng-template #another>
+          <button class="button"  style="background: darkblue" (click)="addToBucket(product)"> Add to bucket </button>
+        </ng-template>
+  </ng-template>
+
+        <ng-template #bucket>
+          <button  class="button" (click)="removeFromBucket(product)"> Remove </button>
+        </ng-template>
       </td>
   </tr>
   </ng-container>
