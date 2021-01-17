@@ -12,7 +12,7 @@ export class ShoppingItem {
   @Input() item: any;
   @Output() onRemove = new EventEmitter<never>();
 
-  remove() {
-    this.onRemove.emit();
+  remove(item: any) {
+    this.onRemove.emit(item);
   }
 }
